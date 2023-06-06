@@ -30,15 +30,24 @@ for (let index = 0; index < palos.length; index++) {
 } */
 
 baraja = _.shuffle(baraja);
-console.log(baraja.pop());
-console.log(baraja.pop());
-console.log(baraja.pop());
-console.log(baraja.pop());
-console.log(baraja.pop());
-console.log(baraja.pop());
-console.log(baraja.pop());
-console.log(baraja.pop());
-console.log(baraja);
+let continuar = false;
+let contador = 0;
+
+do {
+  // sacar carta
+  let carta = baraja.shift();
+  let valor = carta.substring(0, carta.length - 1);
+  // calcular valor
+  // partir carta 0, longitud
+  continuar = confirm(
+    `La carta sacada es ${carta} cuyo valor es de ${valor}, ¿Quieres continuar?`
+  );
+} while (continuar);
+
+//console.log(baraja);
+
+// nada mas empezar, se saca una carta y se avisa al usuario de la carta y el valor obtenido,
+// pregundanto si quiere continuar
 
 //console.log(baraja);
 // quiero tener en un array el palo de D
