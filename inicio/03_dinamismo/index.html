@@ -24,7 +24,9 @@
       <h2>Lista uno</h2>
       <div class="lista-uno mb-4">
         <ul id="lista" class="list-group">
-          <li class="list-group-item li-hijo">Nodo uno lista 1</li>
+          <li class="list-group-item li-hijo" id="nodo-borrar">
+            Nodo uno lista 1
+          </li>
           <li class="list-group-item li-hijo">Nodo dos lista 1</li>
           <li class="list-group-item li-hijo">Nodo tres lista 1</li>
           <li class="list-group-item li-hijo">Nodo cuatro lista 1</li>
@@ -49,7 +51,14 @@
         class="form-control mt-2"
         placeholder="introduce nombre del nodo"
       />
+
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Selecciona una lista</option>
+        <option value="1">Lista uno</option>
+        <option value="2">Lista dos</option>
+      </select>
     </div>
+
     <script src="./utils/js/01_nodos.js"></script>
   </body>
 </html>
