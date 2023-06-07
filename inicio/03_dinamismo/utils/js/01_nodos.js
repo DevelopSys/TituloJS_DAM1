@@ -28,19 +28,19 @@ let lista1 = document.querySelector("div.lista-uno ul");
 let lista2 = document.querySelector("div.lista-dos ul");
 let select = document.querySelector("select");
 let li = document.querySelectorAll("li");
-
+let nodoSeleccionado;
 li.forEach((e) => {
   e.addEventListener("click", () => {
     // se quitan todos los active
     li.forEach((e1) => {
       e1.classList.remove("active");
     });
-
     // se pone active el del click
+
+    nodoSeleccionado = e;
     e.classList.add("active");
   });
 });
-
 botonAnadir.addEventListener("click", (e) => {
   // 1 creo un lista 2
   let nodoLI = document.createElement("li");
@@ -59,11 +59,14 @@ botonAnadir.addEventListener("click", (e) => {
   }
   // lista.innerHTML += `<li class='list-group-item li-hijo'>${inputNodo.value}</li>`;
 });
-
 botonBorrar.addEventListener("click", (e) => {
-  let nodoBorrar = document.querySelector("#nodo-borrar");
+  // borrar el seleccionado
+
+  document.querySelector(".active").remove();
+  nodoSeleccionado.remove();
+  /* let nodoBorrar = document.querySelector("#nodo-borrar");
   nodoBorrar.remove();
-  lista1.removeChild(nodoBorrar);
+  lista1.removeChild(nodoBorrar); */
 });
 
 //console.log(botonAnadir);
