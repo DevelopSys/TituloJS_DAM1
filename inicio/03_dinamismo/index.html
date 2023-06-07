@@ -20,13 +20,35 @@
   <body>
     <div class="container mt-4">
       <h1>Dinamismo con nodos</h1>
-      <ul id="lista" class="list-group">
-        <li class="list-group-item li-hijo">Nodo uno</li>
-        <li class="list-group-item li-hijo">Nodo dos</li>
-        <li class="list-group-item li-hijo">Nodo tres</li>
-        <li class="list-group-item li-hijo">Nodo cuatro</li>
-      </ul>
-      <button class="btn btn-primary mt-4">Pulsar</button>
+
+      <h2>Lista uno</h2>
+      <div class="lista-uno mb-4">
+        <ul id="lista" class="list-group">
+          <li class="list-group-item li-hijo">Nodo uno lista 1</li>
+          <li class="list-group-item li-hijo">Nodo dos lista 1</li>
+          <li class="list-group-item li-hijo">Nodo tres lista 1</li>
+          <li class="list-group-item li-hijo">Nodo cuatro lista 1</li>
+        </ul>
+      </div>
+
+      <h2>Lista dos</h2>
+      <div class="lista-dos">
+        <ul id="lista" class="list-group">
+          <li class="list-group-item li-hijo">Nodo uno lista 2</li>
+          <li class="list-group-item li-hijo">Nodo dos lista 2</li>
+          <li class="list-group-item li-hijo">Nodo tres lista 2</li>
+          <li class="list-group-item li-hijo">Nodo cuatro lista 2</li>
+        </ul>
+      </div>
+
+      <button class="btn btn-primary mt-4" id="boton-anadir">Añadir</button>
+      <button class="btn btn-primary mt-4" id="boton-borrar">Borrar</button>
+
+      <input
+        type="text"
+        class="form-control mt-2"
+        placeholder="introduce nombre del nodo"
+      />
     </div>
     <script src="./utils/js/01_nodos.js"></script>
   </body>
