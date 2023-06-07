@@ -31,16 +31,30 @@ for (let index = 0; index < palos.length; index++) {
 
 baraja = _.shuffle(baraja);
 let continuar = false;
-let contador = 0;
+let cuenta = 0;
 
 do {
   // sacar carta
   let carta = baraja.shift();
   let valor = carta.substring(0, carta.length - 1);
+
+  switch (valor) {
+    case "J":
+      valor = 11;
+      break;
+    case "Q":
+      valor = 12;
+      break;
+    case "K":
+      valor = 13;
+      break;
+  }
+
+  cuenta += Number(valor);
   // calcular valor
   // partir carta 0, longitud
   continuar = confirm(
-    `La carta sacada es ${carta} cuyo valor es de ${valor}, ¿Quieres continuar?`
+    `La carta sacada es ${carta} cuyo valor es de ${valor}. Tienes una cuenta de ${cuenta}, ¿Quieres continuar?`
   );
 } while (continuar);
 
