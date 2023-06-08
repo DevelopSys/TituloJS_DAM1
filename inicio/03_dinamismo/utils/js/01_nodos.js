@@ -21,14 +21,27 @@ console.log(nodoBoton); */
 /*let nodoBotones = document.querySelectorAll("button");
 console.log(nodoBotones);*/
 
-let inputNodo = document.querySelector("input");
+let inputTexto = document.querySelector("input.texto");
+let inputNodo = document.querySelector("input.mt-2");
 let botonAnadir = document.querySelector("#boton-anadir");
 let botonBorrar = document.querySelector("#boton-borrar");
 let lista1 = document.querySelector("div.lista-uno ul");
 let lista2 = document.querySelector("div.lista-dos ul");
 let select = document.querySelector("select");
 let li = document.querySelectorAll("li");
+let contador = document.querySelector("span");
 let nodoSeleccionado;
+
+inputTexto.addEventListener("keyup", (e) => {
+  //console.log("Tecla pulsada");
+  if (inputTexto.value.length == 50) {
+    alert("cantidad de texto superada");
+  } else {
+    contador.innerHTML = inputTexto.value.length;
+  }
+  //console.log(inputTexto.value.length);
+});
+
 li.forEach((e) => {
   e.addEventListener("click", () => {
     // se quitan todos los active
@@ -57,7 +70,7 @@ botonAnadir.addEventListener("click", (e) => {
   } else {
     alert("Por favor selecciona una lista");
   }
-  // lista.innerHTML += `<li class='list-group-item li-hijo'>${inputNodo.value}</li>`;
+  // lista.innerText += `<li class='list-group-item li-hijo'>${inputNodo.value}</li>`;
 });
 botonBorrar.addEventListener("click", (e) => {
   // borrar el seleccionado
