@@ -6,6 +6,27 @@
 // repartir carta: saca una carta de la baraja
 
 let baraja = [];
+let botonIniciar = document.querySelector(".btn-primary");
+let botonCarta = document.querySelector(".btn-secondary");
+let botonPasar = document.querySelector(".btn-success");
+
+botonIniciar.addEventListener("click", () => {
+  if (baraja.length == 0) {
+    generarBaraja();
+    alert("Juego iniciado!!!");
+    console.log(baraja);
+  } else {
+    alert("Ya hay una baraja en juego");
+  }
+});
+
+botonCarta.addEventListener("click", () => {
+  if (baraja.length > 0) {
+    console.log(repartirCarta());
+  } else {
+    alert("lo siento no hay mas cartas");
+  }
+});
 
 function generarBaraja() {
   let palos = ["C", "D", "P", "T"];
