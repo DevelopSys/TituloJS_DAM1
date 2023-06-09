@@ -11,6 +11,8 @@ let botonCarta = document.querySelector(".btn-secondary");
 let botonPasar = document.querySelector(".btn-success");
 let puntuacionSpanJ1 = document.querySelector("#j1");
 let puntuacionSpanJ2 = document.querySelector("#j2");
+let tapeteJ1 = document.querySelector("#tapete-jugador");
+let tapeteJ2 = document.querySelector("#tapete-maquina");
 
 let puntosJ1 = 0;
 let puntosJ2 = 0;
@@ -35,8 +37,10 @@ botonIniciar.addEventListener("click", () => {
 
 botonCarta.addEventListener("click", () => {
   if (baraja.length > 0) {
-    puntosJ1 += Number(obtenerValorCarta(repartirCarta()));
+    let carta = repartirCarta();
+    puntosJ1 += Number(obtenerValorCarta(carta));
     puntuacionSpanJ1.innerHTML = puntosJ1.toString();
+    tapeteJ1.innerHTML += `<img src="./utils/images/${carta}.png" style="height: 50%" />`;
   } else {
     alert("lo siento no hay mas cartas");
   }
