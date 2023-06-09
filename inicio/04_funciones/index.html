@@ -25,14 +25,16 @@
       <!-- boton pasar -->
       <div>
         <button type="button" class="btn btn-primary">Iniciar juego</button>
-        <button type="button" class="btn btn-secondary">Pedir carta</button>
-        <button type="button" class="btn btn-success">Pasar</button>
+        <button type="button" class="btn btn-secondary" disabled>
+          Pedir carta
+        </button>
+        <button type="button" class="btn btn-success" disabled>Pasar</button>
       </div>
-      <div>
-        <h2>Jugador 1 <span>puntuacion; 0</span></h2>
+      <div id="tapete-jugador">
+        <h2><span id="j1">puntuacion: 0</span></h2>
       </div>
-      <div>
-        <h2>Jugador 2 <span>puntuacion; 0</span></h2>
+      <div id="tapete-maquina">
+        <h2>Jugador 2 <span id="j2">puntuacion; 0</span></h2>
       </div>
     </div>
     <!-- <script src="./utils/js/01_funciones.js"></script> -->

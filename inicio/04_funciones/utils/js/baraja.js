@@ -9,12 +9,25 @@ let baraja = [];
 let botonIniciar = document.querySelector(".btn-primary");
 let botonCarta = document.querySelector(".btn-secondary");
 let botonPasar = document.querySelector(".btn-success");
+let puntuacionSpanJ1 = document.querySelector("#j1");
+let puntuacionSpanJ2 = document.querySelector("#j2");
+
+let puntosJ1 = 0;
+let puntosJ2 = 0;
+
+setTimeout(() => {
+  let nombre = prompt("Por favor introduce tu nombre");
+  document.querySelector("div#tapete-jugador h2").innerHTML =
+    nombre + " " + document.querySelector("div#tapete-jugador h2").innerHTML;
+}, 1000);
 
 botonIniciar.addEventListener("click", () => {
   if (baraja.length == 0) {
     generarBaraja();
     alert("Juego iniciado!!!");
-    console.log(baraja);
+    botonIniciar.disabled = true;
+    botonPasar.disabled = false;
+    botonCarta.disabled = false;
   } else {
     alert("Ya hay una baraja en juego");
   }
@@ -22,7 +35,8 @@ botonIniciar.addEventListener("click", () => {
 
 botonCarta.addEventListener("click", () => {
   if (baraja.length > 0) {
-    console.log(repartirCarta());
+    puntosJ1 += Number(obtenerValorCarta(repartirCarta()));
+    puntuacionSpanJ1.innerHTML = puntosJ1.toString();
   } else {
     alert("lo siento no hay mas cartas");
   }
