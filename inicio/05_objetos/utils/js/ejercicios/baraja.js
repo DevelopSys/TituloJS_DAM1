@@ -6,6 +6,7 @@
 // repartir carta: saca una carta de la baraja
 
 let baraja = [];
+let nombreJugador = document.querySelector("#nombre-jugador");
 let botonIniciar = document.querySelector(".btn-primary");
 let botonCarta = document.querySelector(".btn-secondary");
 let botonPasar = document.querySelector(".btn-success");
@@ -17,11 +18,10 @@ let tapeteJ2 = document.querySelector("#tapete-maquina");
 let puntosJ1 = 0;
 let puntosJ2 = 0;
 
-/* setTimeout(() => {
+setTimeout(() => {
   let nombre = prompt("Por favor introduce tu nombre");
-  document.querySelector("div#tapete-jugador h2").innerHTML =
-    nombre + " " + document.querySelector("div#tapete-jugador h2").innerHTML;
-}, 1000); */
+  nombreJugador.textContent = nombre;
+}, 1000);
 
 botonIniciar.addEventListener("click", () => {
   if (baraja.length == 0) {
@@ -41,6 +41,14 @@ botonCarta.addEventListener("click", () => {
     puntuacionJ1.textContent = puntosJ1.toString();
     //console.log(puntuacionSpanJ2.innerHTML);
     tapeteJ1.innerHTML += `<img src="${carta.imagen}" style="height: 60%" />`;
+
+    setInterval(() => {
+      if (puntosJ1 == 21) {
+        alert("Has ganado");
+      } else if (puntosJ1 > 21) {
+        alert("Has perdido");
+      }
+    }, 500);
   } else {
     alert("lo siento no hay mas cartas");
   }
@@ -53,6 +61,13 @@ botonPasar.addEventListener("click", () => {
     tapeteJ2.innerHTML += `<img src="${carta.imagen}" style="height: 60%" />`;
     puntosJ2 += carta.valor;
     puntuacionJ2.textContent = puntosJ2.toString();
+    setInterval(() => {
+      if (puntosJ2 == 21) {
+        alert("Has ganado");
+      } else if (puntosJ2 > 21) {
+        alert("Has perdido");
+      }
+    }, 500);
   } while (puntosJ2 < 17);
 
   setTimeout(() => {
