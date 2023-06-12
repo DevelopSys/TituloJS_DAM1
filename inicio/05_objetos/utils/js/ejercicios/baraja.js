@@ -10,18 +10,18 @@ let botonIniciar = document.querySelector(".btn-primary");
 let botonCarta = document.querySelector(".btn-secondary");
 let botonPasar = document.querySelector(".btn-success");
 let puntuacionJ1 = document.querySelector("#j1");
-let puntuacionSpanJ2 = document.querySelector("#j2");
+let puntuacionJ2 = document.querySelector("#j2");
 let tapeteJ1 = document.querySelector("#tapete-jugador");
 let tapeteJ2 = document.querySelector("#tapete-maquina");
 
 let puntosJ1 = 0;
 let puntosJ2 = 0;
 
-setTimeout(() => {
+/* setTimeout(() => {
   let nombre = prompt("Por favor introduce tu nombre");
   document.querySelector("div#tapete-jugador h2").innerHTML =
     nombre + " " + document.querySelector("div#tapete-jugador h2").innerHTML;
-}, 1000);
+}, 1000); */
 
 botonIniciar.addEventListener("click", () => {
   if (baraja.length == 0) {
@@ -34,18 +34,47 @@ botonIniciar.addEventListener("click", () => {
     alert("Ya hay una baraja en juego");
   }
 });
-
 botonCarta.addEventListener("click", () => {
   if (baraja.length > 0) {
     let carta = repartirCarta();
     puntosJ1 += obtenerValorCarta(carta);
     puntuacionJ1.textContent = puntosJ1.toString();
     //console.log(puntuacionSpanJ2.innerHTML);
-    tapeteJ1.innerHTML += `<img src="${carta.imagen}" style="height: 50%" />`;
+    tapeteJ1.innerHTML += `<img src="${carta.imagen}" style="height: 60%" />`;
   } else {
     alert("lo siento no hay mas cartas");
   }
 });
+botonPasar.addEventListener("click", () => {
+  // jugar maquina
+
+  do {
+    let carta = repartirCarta();
+    tapeteJ2.innerHTML += `<img src="${carta.imagen}" style="height: 60%" />`;
+    puntosJ2 += carta.valor;
+    puntuacionJ2.textContent = puntosJ2.toString();
+  } while (puntosJ2 < 17);
+
+  setTimeout(() => {
+    if (puntosJ1 > puntosJ2) {
+      alert("Has ganado");
+    } else if (puntosJ2 > puntosJ1) {
+      alert("Has perdido");
+    } else {
+      alert("Hay empate");
+    }
+  }, 1000);
+});
+
+// pulso boton pasar
+
+// la maquina juega
+// cuando paso y la maquina
+/* if (){
+
+    } else {
+
+    } */
 
 function generarBaraja() {
   let palos = ["C", "D", "P", "T"];
