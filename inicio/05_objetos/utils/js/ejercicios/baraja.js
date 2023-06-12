@@ -9,7 +9,7 @@ let baraja = [];
 let botonIniciar = document.querySelector(".btn-primary");
 let botonCarta = document.querySelector(".btn-secondary");
 let botonPasar = document.querySelector(".btn-success");
-let puntuacionSpanJ1 = document.querySelector("#j1");
+let puntuacionJ1 = document.querySelector("#j1");
 let puntuacionSpanJ2 = document.querySelector("#j2");
 let tapeteJ1 = document.querySelector("#tapete-jugador");
 let tapeteJ2 = document.querySelector("#tapete-maquina");
@@ -26,7 +26,7 @@ setTimeout(() => {
 botonIniciar.addEventListener("click", () => {
   if (baraja.length == 0) {
     generarBaraja();
-    alert("Juego iniciado!!!");
+    //alert("Juego iniciado!!!");
     botonIniciar.disabled = true;
     botonPasar.disabled = false;
     botonCarta.disabled = false;
@@ -38,10 +38,9 @@ botonIniciar.addEventListener("click", () => {
 botonCarta.addEventListener("click", () => {
   if (baraja.length > 0) {
     let carta = repartirCarta();
-    console.log(carta);
     puntosJ1 += obtenerValorCarta(carta);
-    console.log(puntosJ1);
-    puntuacionSpanJ1.innerHTML = puntosJ1.toString();
+    puntuacionJ1.textContent = puntosJ1.toString();
+    //console.log(puntuacionSpanJ2.innerHTML);
     tapeteJ1.innerHTML += `<img src="${carta.imagen}" style="height: 50%" />`;
   } else {
     alert("lo siento no hay mas cartas");
