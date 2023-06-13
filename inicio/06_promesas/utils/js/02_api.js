@@ -1,17 +1,15 @@
 fetch("https://randomuser.me/api/?results=50")
-  .then((e) => {
-    // pasar el resultado a JSON --> tarda no se cuanto
-    console.log("Resultado primera promesa");
-    console.log(e);
-    return e.json();
-  })
+  .then((e) => e.json())
   .then((e1) => {
-    console.log("Resultado segunda promesa");
-    console.log(e1);
+    e1.results.forEach((element) => {
+      console.log(
+        `${element.name.title} ${element.name.first} ${element.name.last}`
+      );
+    });
   })
   .catch((err) => {
     console.log(err);
   });
 
-// obtener por consola el nombre y apellidos de todos los usuarios del
-// JSON
+// Crear una ul y meter todos los usuarios (nombre - apellidos)
+// dentro de la misma
