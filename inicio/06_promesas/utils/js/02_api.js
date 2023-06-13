@@ -12,7 +12,8 @@ fetch("https://randomuser.me/api/?results=50")
   });
 
 // incoporar un input para indicar el número de elementos a mostrar
-// incoporar un select para indicar el genero a mostrar (masculino, femenino, todas)
+// incoporar un select para indicar el genero a mostrar (masculino,
+// femenino, todos)
 
 // Crear una ul y meter todos los usuarios (nombre - apellidos)
 // dentro de la misma
