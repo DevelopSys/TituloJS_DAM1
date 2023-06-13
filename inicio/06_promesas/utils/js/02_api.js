@@ -12,3 +12,6 @@ fetch("https://randomuser.me/api/?results=50")
   .catch((err) => {
     console.log(err);
   });
+
+// obtener por consola el nombre y apellidos de todos los usuarios del
+// JSON
