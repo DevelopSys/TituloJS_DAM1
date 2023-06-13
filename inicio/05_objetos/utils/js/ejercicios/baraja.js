@@ -24,7 +24,7 @@ setTimeout(() => {
 }, 1000);
 
 botonIniciar.addEventListener("click", () => {
-  if (baraja.length == 0) {
+  /* if (baraja.length == 0) {
     generarBaraja();
     //alert("Juego iniciado!!!");
     botonIniciar.disabled = true;
@@ -32,7 +32,7 @@ botonIniciar.addEventListener("click", () => {
     botonCarta.disabled = false;
   } else {
     alert("Ya hay una baraja en juego");
-  }
+  } */
 });
 botonCarta.addEventListener("click", () => {
   if (baraja.length > 0) {
