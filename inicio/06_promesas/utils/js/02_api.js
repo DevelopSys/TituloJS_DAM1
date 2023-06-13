@@ -12,6 +12,10 @@ boton.addEventListener("click", (e) => {
   fetch(`https://randomuser.me/api/?gender=${genero}&results=${numero}`)
     .then((e) => e.json())
     .then((e1) => {
+      /*     lista.childNodes.forEach((e) => {
+        lista.removeChild(e);
+      }); */
+      lista.innerHTML = "";
       e1.results.forEach((element) => {
         lista.innerHTML += `<li>${element.name.title} ${element.name.first} ${element.name.last}</li>`;
       });
